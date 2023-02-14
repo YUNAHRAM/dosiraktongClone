@@ -29,8 +29,14 @@ body {
   font-size: 16px;
   line-height: 1;
   letter-spacing: 0;
+  height: 5000px;
 }
-/* 공통요소 */
+html.active {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+/* 공통요소 : 2번이상 재활용 코드 */
 .inner {
   position: relative;
   display: block;
@@ -61,11 +67,13 @@ body {
   background: rgba(255, 255, 255, 0);
   transition: height 0.5s, background 0.5s;
   /* all 0.5s 라는 뜻인데 더 명확히 하면 좋다 */
+  border-bottom: 1px solid #fff;
 }
 
 .header .inner {
   max-width: 100%;
   height: 100%;
+  z-index: 9;
   /* height 100px 이라고 .header 에서 썼음 */
 }
 /* 
@@ -98,25 +106,183 @@ body {
   /* ul 은 position:relative; 임 안써도됨 */
   display: flex;
   height: 100%;
+  /* height  는 한군데서만 정확한 픽셀로 주고 나머지는 다 %퍼센트로 지정하고 가운데 정렬함 */
   align-items: center;
 }
-.gnb li {
+/* .gnb >li : 주의사항 만약에 서브메뉴가 있다면 꺽쇠 사용하기. */
+.gnb > li {
 }
+
+.gnb > li > a {
+  display: block;
+  font-size: 17px;
+  font-weight: 500;
+  color: #fff;
+  /* 왜 padding 을 쓰는가? a 태그 영역 확대 */
+  padding: 40px 38px;
+}
+
+/* a 의 공간이 너무커서 a 태그 안의 글자를 span 으로 감싸줌 */
+.gnb > li > a > span {
+  position: relative;
+  display: block;
+  padding-bottom: 7px;
+}
+.gnb > li > a > span::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  background: #fff;
+  transition: width 0.5s;
+}
+
+.gnb > li > a:hover > span::after {
+  width: 100%;
+}
+/* 모바일 메뉴 */
+.mb-nav {
+  /* 
+        만약 relative 인 경우에는 다른 영역에 영향을 준다.
+        margin, padding,width,height... 등등이 다른 영역에 크기를 줌
+    */
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  padding-top: 90px;
+  transition: left 0.6s ease-out;
+}
+
+.mb-nav-gnb {
+}
+.mb-nav-gnb > li {
+  border-bottom: 1px solid #e5e5e5;
+}
+.mb-nav-gnb > li > a {
+  display: block;
+  padding: 15px 70px 15px 40px;
+  font-size: 24px;
+}
+
 /* 스크롤시 CSS 적용 */
 /* .active 클래스는 js 로 생성할거임 */
-.header .active {
+.header.active {
   height: 80px;
   background: rgba(255, 255, 255, 1);
 }
-.header.active .logo {
+.logo.active {
   top: 25px;
   background: url(../images/logo.png) no-repeat center;
   background-size: cover;
 }
-.header .active .nav {
+.logo.active-blue {
+  background: url(../images/logo.png) no-repeat center;
+  background-size: cover;
+}
+.header.active .nav {
 }
 
+/* 
+    자바스크립트에서는 diplay:none 이면 선택이 안될 때가 있음.
+    opcity:0 은 선택됨.    
+    querySelector(".mobile-bt 
+*/
+.mobile-bt {
+  position: absolute;
+  right: -20000px;
+  top: 24px;
+  width: 30px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.mobile-bt span {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+}
+.mobile-bt span:nth-child(1) {
+  transition: transform 0.3s;
+  top: 0;
+}
+.mobile-bt span:nth-child(2) {
+  top: calc(50% - 1px);
+  transition: opacity 0.1s;
+}
+.mobile-bt span:nth-child(3) {
+  bottom: 0;
+  transition: transform 0.3s;
+}
+.gnb > li > a.active {
+  color: #222;
+}
+/* 모바일 버튼 애니메이션 */
+.mobile-bt span.active {
+  background: #222;
+}
+.mobile-bt.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: calc(50% - 1px);
+}
+.mobile-bt.active span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-bt.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: calc(50% - 1px);
+}
+
+/* 모바일 메뉴 애니메이션 */
+.mb-nav.active {
+  left: 0;
+}
 /* 상단 끝  */
+/* 1.숫자가 증가하는 형태는 :  모바일 작업 > 태블릿 > 데스크탑 */
+/* 2.숫자가 감소하는 형태는 : 데스크탑 작업 > 태블릿 > 모바일  */
+
+/* 2번을 씁시다!!  */
+@media screen and (max-width: 1280px) {
+  .header {
+    height: 90px;
+  }
+  .logo {
+    top: 30px;
+    left: 20px;
+    width: 150px;
+    height: 30px;
+  }
+  .gnb > li > a {
+    padding: 25px 35px;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .header {
+    height: 70px !important;
+  }
+  .logo {
+    top: 20px !important;
+    width: 120px;
+    height: 30px;
+  }
+  .gnb {
+    display: none;
+  }
+  .mobile-bt {
+    right: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+}
 
 /*  비주얼 시작  */
 .visual {
@@ -124,9 +290,21 @@ body {
   display: block;
   width: 100%;
   height: 100vh;
-  background: url(../images/main_visual_1.jpg) no-repeat center;
-  background-size: cover;
 }
+
+.swvisual {
+}
+.visual-img {
+}
+.bg-1 {
+}
+.bg-2 {
+}
+.bg-3 {
+}
+.bg-4 {
+}
+
 /* 비주얼 끝  */
 /* 서비스 시작  */
 .service {
