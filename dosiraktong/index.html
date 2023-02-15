@@ -30,6 +30,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
+    <!-- XEicon 아이콘 -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+
+
     <!-- css -->
     <link rel="stylesheet" href="./css/normalize.css">
 
@@ -104,7 +108,9 @@
                 사용자 지정 클래스(swvisual) :JS 및 CSS 추가할때 씀.
             -->
             <div class="swiper swvisual">
+                <!--  swiper-wrapper 는 클래스명 절대 변경 및 css 작업 금지 -->
                 <div class="swiper-wrapper">
+                    <!--  swiper-slide 는 클래스명 절대 변경 및 css 작업 금지 -->
                     <div class="swiper-slide">
                         <div class="visual-img bg-1"></div>
                     </div>
@@ -118,6 +124,35 @@
                         <div class="visual-img bg-4"></div>
                     </div>
 
+                </div>
+                <!-- 슬라이드 컨트롤러 -->
+                <div class="swvisual-control">
+                    <!-- margin : 0 auto; 중앙에 배치 -->
+                    <div class="inner">
+                        <!-- 좌측/우측 이동버튼 -->
+                        <button class="swvisual-prev"><i class="xi-angle-left"></i></button>
+                        <button class="swvisual-next"><i class="xi-angle-right"></i></button>
+                        <!-- 슬라이드 타이틀 -->
+                        <h2 class="swvisual-title">도시락 유심</h2>
+                        <!-- 슬라이드 설명글 -->
+                        <p class="swvisual-txt">도시락으로 다 통한다, 해외데이터는 도시락통</p>
+                        <div class="swvisual-link">
+                            <a href="#">자세히보기<i class="xi-long-arrow-right"></i></a>
+                        </div>
+
+
+                        <!-- 네비게이션 -->
+                        <div class="swvisual-navi">
+                            <ul class="swvisual-list">
+                                <!-- js 로 코드 html 삽입-->
+                                <!-- <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li> -->
+                            </ul>
+                        </div>
+
+                    </div>
                 </div>
             </div>
 

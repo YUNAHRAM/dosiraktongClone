@@ -44,7 +44,7 @@ html.active {
   max-width: 1420px;
   width: 100%;
   /* block 요소 가운데 정렬 */
-  margin: 0 quto;
+  margin: 0 auto;
 }
 
 /* 레이아웃 시작 */
@@ -293,16 +293,163 @@ html.active {
 }
 
 .swvisual {
+  width: 100%;
+  height: 100%;
 }
+/* 기본 및 공통 slide 내용 css */
 .visual-img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
+/* 상세 slide 내용 css */
 .bg-1 {
+  background: url('../images/main_visual_1.jpg') no-repeat center;
+  background-size: cover;
 }
 .bg-2 {
+  background: url('../images/main_visual_2.jpg') no-repeat center;
+  background-size: cover;
 }
 .bg-3 {
+  background: url('../images/main_visual_3.jpg') no-repeat center;
+  background-size: cover;
 }
 .bg-4 {
+  background: url('../images/main_visual_4.jpg') no-repeat center;
+  background-size: cover;
+}
+.swvisual-control {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+.swvisual-prev {
+  width: 60px;
+  height: 60px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+  color: #fff;
+  font-size: 24px;
+}
+.swvisual-prev i {
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+.swvisual-prev:hover i {
+  opacity: 1;
+}
+.swvisual-next i {
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+.swvisual-next:hover i {
+  opacity: 1;
+}
+.swvisual-next {
+  width: 60px;
+  height: 60px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+  color: #fff;
+  font-size: 24px;
+}
+
+.swvisual-title {
+  margin: 20px 0 12px;
+  font-family: 'Godo', 'Notokr';
+  font-size: 74px;
+  color: #fff;
+  line-height: 1.3;
+}
+.swvisual-txt {
+  opacity: 0.9;
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #fff;
+}
+.swvisual-link {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 180px;
+  height: 55px;
+  padding: 0 20px;
+  margin-top: 30px;
+  font-size: 16px;
+}
+.swvisual-link a {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #fff;
+  color: #fff;
+}
+.swvisual-link.active {
+  display: none;
+}
+.swvisual-navi {
+  margin-top: 90px;
+}
+.swvisual-list {
+  display: flex;
+}
+.swvisual-list li {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 27px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.3);
+  transition: 0.3s;
+  padding: 0 10px;
+}
+.swvisual-list li.active {
+  color: rgba(255, 255, 255, 1);
+}
+
+.swvisual-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+.swvisual-list li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: rgba(255, 255, 255, 1);
+}
+.swvisual-list li.active::after {
+  width: 100%;
+  transition: width 2s;
 }
 
 /* 비주얼 끝  */
