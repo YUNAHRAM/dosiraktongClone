@@ -29,13 +29,31 @@ body {
   font-size: 16px;
   line-height: 1;
   letter-spacing: 0;
-  height: 5000px;
+  /* height: 5000px; */
 }
 html.active {
   overflow-y: hidden;
   overflow-x: hidden;
 }
 
+/* 위로가기 */
+.gotop {
+  position: fixed;
+  right: 20px;
+  bottom: 100px;
+  width: 100px;
+  height: 100px;
+  z-index: 9999;
+  border: 0;
+  background: blud;
+  cursor: pointer;
+  transition: all 0.5s;
+  opacity: 0;
+}
+.gotop.active {
+  opacity: 1;
+  background: red;
+}
 /* 공통요소 : 2번이상 재활용 코드 */
 .inner {
   position: relative;
@@ -74,6 +92,7 @@ html.active {
   max-width: 100%;
   height: 100%;
   z-index: 9;
+  padding: 0 30px;
   /* height 100px 이라고 .header 에서 썼음 */
 }
 /* 
@@ -405,7 +424,7 @@ html.active {
   border: 1px solid #fff;
   color: #fff;
 }
-.swvisual-link.active {
+.swvisual-link.active a {
   display: none;
 }
 .swvisual-navi {
@@ -452,11 +471,136 @@ html.active {
   transition: width 2s;
 }
 
+/* 비주얼 반응형 */
+@media screen and (max-width: 1280px) {
+  /* 비주얼 안쪽의 사이즈 조절하기!! 아람 */
+}
+@media screen and (max-width: 1024px) {
+  .visual {
+    min-height: 800px;
+    height: 48.95vw;
+  }
+}
+@media screen and (max-width: 640px) {
+  /* 비주얼 안쪽의 사이즈 조절하기!! 아람 */
+}
 /* 비주얼 끝  */
+
 /* 서비스 시작  */
 .service {
   position: relative;
   display: block;
+  height: 100vh;
+}
+.service .inner {
+  height: 100%;
+  padding: 180px 30px;
+}
+.service h2 {
+  text-align: center;
+  /* 글자 셋팅 */
+}
+.service h2 span {
+  /* 글자색 수정 */
+}
+.service-contents {
+  height: 680px;
+  display: flex;
+  justify-content: space-between;
+}
+.service-left {
+  width: calc(50% - 10px);
+  height: 100%;
+}
+.service-link-1 {
+  background: url(../images/main_service_img1.jpg);
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.service-link-2 {
+  background: url(../images/main_service_img2.jpg);
+  display: block;
+  width: 100%;
+  height: calc(50% - 10px);
+  background-size: cover;
+}
+.service-link-3 {
+  background: url(../images/main_service_img3.jpg);
+  display: block;
+  width: 100%;
+  /* height: 100%; */
+  height: calc(50% - 10px);
+  background-size: cover;
+}
+.service-right {
+  height: 100%;
+  width: calc(50% - 10px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* 서비스 반응형 */
+@media screen and (max-width: 1460px) {
+  .service-contents {
+    /* 1920/680 
+    으로 계산하다보니 
+    680px 로 고정중이니 
+    (1460px/680px)* 100 = 46.57vw
+    이게 맞다.! */
+    height: 46.57vw;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .service {
+    height: auto;
+  }
+  .service-contents {
+    flex-wrap: wrap;
+    height: auto;
+  }
+  .service-left {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .service-right {
+    width: 100%;
+    justify-content: center;
+  }
+  .service-link-1 {
+    /* flex 적용 안해서 마진0 auto줌 */
+    margin: 0 auto;
+    max-width: 660px;
+    width: 64.45vw;
+    height: 62.5vw;
+  }
+  .service-link-2 {
+    max-width: 660px;
+    width: 64.45vw;
+    height: 30vw;
+    margin-bottom: 20px;
+  }
+  .service-link-3 {
+    max-width: 660px;
+    width: 64.45vw;
+    height: 30vw;
+  }
+}
+@media screen and (max-width: 640px) {
+  .service-link-1 {
+    width: 100%;
+    height: 275px;
+  }
+  .service-link-2 {
+    width: 100%;
+    height: 275px;
+  }
+  .service-link-3 {
+    width: 100%;
+    height: 275px;
+  }
 }
 /* 서비스 끝  */
 /* 정보 시작  */
@@ -464,16 +608,107 @@ html.active {
   position: relative;
   display: block;
 }
+.info .inner {
+  padding: 180px 30px;
+}
+.info-contents {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: space-between;
+  height: 430px;
+  width: 100%;
+}
+.info-left {
+  width: calc(50% - 10px);
+  height: 100%;
+  background: #e5e5e5;
+}
+.info-right {
+  width: calc(50% - 10px);
+  height: 100%;
+  background: green;
+}
+
+/* 정보 반응형  */
+
+@media screen and (max-width: 1280px) {
+  .info-contents {
+    height: 383px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .info-contents {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .info-left {
+    width: 100%;
+    height: auto;
+    /* 패딩 임시로 지우기 아람 */
+    padding: 50px 0;
+  }
+  .info-right {
+    width: 100%;
+    height: auto;
+    /* 패딩 임시로 지우기 아람 */
+    padding: 50px 0;
+  }
+}
+
 /* 정보 끝  */
 /* 서비스 카테고리 시작  */
 .category {
   position: relative;
   display: block;
+  height: 400px;
 }
+.swcategory {
+  height: 100%;
+}
+.category-link {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.clink-1 {
+  background-color: blueviolet;
+}
+.clink-2 {
+  background-color: rgb(199, 189, 45);
+}
+.clink-3 {
+  background-color: rgb(16, 160, 129);
+}
+.category-pop {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+}
+.category-pop.active {
+  display: none !important;
+}
+@media screen and (max-widht: 1024px) {
+  .category-pop {
+    display: flex;
+  }
+}
+
 /* 서비스 카테고리 끝  */
 /* 하단 시작  */
 .footer {
   position: relative;
   display: block;
+  padding: 40px 0;
+  text-align: center;
+  background: #222;
+  color: #666666;
 }
 /* 하단 끝  */

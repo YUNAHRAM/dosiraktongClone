@@ -1,6 +1,29 @@
 //이미지 및 리소스 로드 후 코드실행
+
 // window.onload=()=>{} 화살표펑션 또는 아래 펑션 사용
 window.onload = function () {
+  // AOS 셋팅
+  AOS.init();
+
+  // Waypoint 활용
+  let goTop = document.querySelector('.gotop');
+
+  // 스크롤의 위치에 따른 div 비교대상
+  let visual = document.querySelector('.service');
+  new Waypoint({
+    element: visual,
+    handler: function (dir) {
+      //   console.log(dir); dir값에 따라 처리
+      if (dir === 'down') {
+        goTop.classList.add('active');
+      } else {
+        goTop.classList.remove('active');
+      }
+    },
+    // 해당 div 의 화면상에 얼마나 보이는가?
+    offset: '50%',
+  });
+
   //코드 실행 작성
   //모바일 메뉴 버튼 처리
   // 1.모바일 버튼을 찾아서 저장한다.
@@ -167,7 +190,7 @@ window.onload = function () {
 
   // 타이틀 내용 보여주기
   function showVT(_data, _idx) {
-    console.log(_data);
+    // console.log(_data);
     swTitle.innerHTML = _data.title;
     swTxt.innerHTML = _data.txt;
     if (_data.link === 'no') {
@@ -221,9 +244,31 @@ window.onload = function () {
   });
   // 슬라이드가 변경될 때마다 하고 싶은일 진행
   swVisual.on('slideChange', function () {
-    console.log('진짜 html 태그의 순서', swVisual.realIndex);
-    console.log('모션이 되는 순서', swVisual.activeIndex);
+    // console.log('진짜 html 태그의 순서', swVisual.realIndex);
+    // console.log('모션이 되는 순서', swVisual.activeIndex);
     // 텍스트를 수정한다.
     showVT(visualData[swVisual.realIndex], swVisual.realIndex);
+  });
+  // 카테고리 슬라이드
+  new Swiper('.swcategory', {
+    loop: true,
+
+    slidesPerView: 1,
+    breakpoints: {
+      480: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+
+        // spaceBetween: 50, 이미지 사이에 갭주고싶을때주면됨.
+      },
+    },
+  });
+
+  // 안내창 기능
+  let categoryPop = document.querySelector('.category-pop');
+  categoryPop.addEventListener('click', function () {
+    categoryPop.classList.add('active');
   });
 };
