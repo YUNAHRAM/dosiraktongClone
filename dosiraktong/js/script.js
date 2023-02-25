@@ -54,7 +54,7 @@ window.onload = function () {
     // 모바일 버튼 아이콘 색상 검은색
 
     mbBtSpan.forEach(item => {
-      item.classList.add('active');
+      item.classList.toggle('active',header.classList.contains("active")||mbBt.classList.contains("active"));
     });
   });
 
