@@ -41,18 +41,23 @@ html.active {
   position: fixed;
   right: 20px;
   bottom: 100px;
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   z-index: 9999;
-  border: 0;
-  background: blud;
+  border: none;
+  border-radius: 10px;
+  background:rgba(247, 172, 172, 0);
   cursor: pointer;
   transition: all 0.5s;
   opacity: 0;
 }
 .gotop.active {
   opacity: 1;
-  background: red;
+  background: rgb(234, 125, 125);
+}
+.gotop i{
+  color: white;
+  font-size: 2.5rem;
 }
 /* 공통요소 : 2번이상 재활용 코드 */
 .inner {
@@ -498,11 +503,10 @@ html.active {
 }
 .service h2 {
   text-align: center;
+  padding-bottom: 20px;
   /* 글자 셋팅 */
 }
-.service h2 span {
-  /* 글자색 수정 */
-}
+
 .service-contents {
   height: 680px;
   display: flex;
@@ -605,30 +609,52 @@ html.active {
 /* 서비스 끝  */
 /* 정보 시작  */
 .info {
+  height: 100vh;
   position: relative;
   display: block;
 }
 .info .inner {
+  height: 100%;
+  position: absolute;
+  top: 100px;
   padding: 180px 30px;
 }
 .info-contents {
-  background-color: aquamarine;
+  
   display: flex;
   justify-content: space-between;
-  height: 430px;
+  height: 1030px;
   width: 100%;
+  
 }
 .info-left {
+  
+  line-height: 4rem;
+  
   width: calc(50% - 10px);
   height: 100%;
-  background: #e5e5e5;
+  
 }
 .info-right {
   width: calc(50% - 10px);
   height: 100%;
-  background: green;
+  
 }
-
+.color-blue{
+  color: cornflowerblue;
+}
+.font-size-big{
+  font-size: 3rem;
+  font-weight: bold;
+}
+.font-size-mid{
+  line-height: 2rem;
+  font-size: 1.7rem;
+}
+.font-size-small{
+  font-size: 18px;
+  line-height: 2rem;
+}
 /* 정보 반응형  */
 
 @media screen and (max-width: 1280px) {
@@ -671,13 +697,30 @@ html.active {
   width: 100%;
   height: 100%;
 }
+.category-link .font-size-mid{
+  padding-top:90px;
+  margin-left: 40px;
+  position:absolute;
+  font-weight: bold;
+}
+.category-link p{
+
+  padding-top:40px;
+  margin-left: 40px;
+  position:absolute;
+  font-weight: bold;
+
+}
 .clink-1 {
+  background: url("../images/main_banner_figure1.png") no-repeat bottom right;
   background-color: blueviolet;
 }
 .clink-2 {
+  background: url("../images/main_banner_figure2.png") no-repeat bottom right;
   background-color: rgb(199, 189, 45);
 }
 .clink-3 {
+  background: url("../images/main_banner_figure3.png") no-repeat bottom right;
   background-color: rgb(16, 160, 129);
 }
 .category-pop {
