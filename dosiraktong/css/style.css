@@ -1,7 +1,7 @@
 @charset "utf-8";
 /*절대로 위 임포트는 1번줄에 배치하기  */
 /* 글꼴 임포트 진행 */
-@import url('./font/font.css');
+@import uƒrl('./font/font.css');
 * {
   margin: 0;
   padding: 0;
