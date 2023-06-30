@@ -1,3 +1,3 @@
 # personal1
 
-# https://yunahram.github.io/personal1/dosiraktong/Main/index.html
+# https://yunahram.github.io/dosiraktongClone/dosiraktong/Main/index.html
