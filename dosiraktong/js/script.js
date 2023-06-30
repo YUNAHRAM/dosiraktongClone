@@ -148,7 +148,7 @@ window.onload = function () {
   //   xhttp.send();
 
   //2.fetch  활용 : 아래 구문을 준수하자.
-  fetch('data.json')
+  fetch('../data.json')
     .then(res => res.json())
     .then(data => {
       // 데이터를 활용한다.
@@ -173,7 +173,7 @@ window.onload = function () {
       showVT(visualData[0], 0);
     })
     .catch(err => {
-      console.log(err);
+      // console.log(err);
     });
 
   // 비주얼에 활용할 데이터

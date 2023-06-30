@@ -1,7 +1,7 @@
 @charset "utf-8";
 /*절대로 위 임포트는 1번줄에 배치하기  */
 /* 글꼴 임포트 진행 */
-@import uƒrl('./font/font.css');
+@import url(./font/font.css);
 * {
   margin: 0;
   padding: 0;
@@ -329,19 +329,19 @@ html.active {
 }
 /* 상세 slide 내용 css */
 .bg-1 {
-  background: url('../images/main_visual_1.jpg') no-repeat center;
+  background: url(../images/main_visual_1.jpg) no-repeat center;
   background-size: cover;
 }
 .bg-2 {
-  background: url('../images/main_visual_2.jpg') no-repeat center;
+  background: url(../images/main_visual_2.jpg) no-repeat center;
   background-size: cover;
 }
 .bg-3 {
-  background: url('../images/main_visual_3.jpg') no-repeat center;
+  background: url(../images/main_visual_3.jpg) no-repeat center;
   background-size: cover;
 }
 .bg-4 {
-  background: url('../images/main_visual_4.jpg') no-repeat center;
+  background: url(../images/main_visual_4.jpg) no-repeat center;
   background-size: cover;
 }
 .swvisual-control {
@@ -712,15 +712,15 @@ html.active {
 
 }
 .clink-1 {
-  background: url("../images/main_banner_figure1.png") no-repeat bottom right;
+  background: url(../images/main_banner_figure1.png) no-repeat bottom right;
   background-color: blueviolet;
 }
 .clink-2 {
-  background: url("../images/main_banner_figure2.png") no-repeat bottom right;
+  background: url(../images/main_banner_figure2.png) no-repeat bottom right;
   background-color: rgb(199, 189, 45);
 }
 .clink-3 {
-  background: url("../images/main_banner_figure3.png") no-repeat bottom right;
+  background: url(../images/main_banner_figure3.png) no-repeat bottom right;
   background-color: rgb(16, 160, 129);
 }
 .category-pop {
